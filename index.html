@@ -3,213 +3,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>abd elhakim</title>
+<title>abd elhakim 006</title>
 
 <style>
+
 body{
-    margin:0;
-    font-family:"Segoe UI",Tahoma,sans-serif;
-    background:linear-gradient(135deg,#000000,#8b0000);
-    color:#ffffff;
-    text-align:center;
+margin:0;
+font-family:"Segoe UI",Tahoma,sans-serif;
+background:linear-gradient(135deg,#000000,#8b0000);
+color:white;
+text-align:center;
 }
 
 /* HEADER */
+
 header{
-    padding:60px 20px;
+padding:40px 20px;
 }
 
 .profile-img{
-    width:270px;
-    height:270px;
-    border-radius:50%;
-    border:6px solid #FFD700;
-    object-fit:cover;
-    box-shadow:0 0 35px rgba(255,215,0,0.7);
-    margin-bottom:25px;
+width:260px;
+height:260px;
+border-radius:50%;
+border:6px solid #FFD700;
+object-fit:cover;
+box-shadow:0 0 40px rgba(255,215,0,0.7);
 }
 
 h1{
-    color:#FFD700;
-    font-size:48px;
-    margin:10px 0;
+color:#FFD700;
+font-size:48px;
+margin:15px 0;
 }
 
-header p{
-    font-size:20px;
-    color:#ffecec;
-}
+/* MAIN LAYOUT */
 
-/* SECTION */
 section{
-    max-width:1000px;
-    margin:auto;
-    padding:30px 20px;
+max-width:1200px;
+margin:auto;
+padding:20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
 }
+
+/* CARDS */
 
 .card{
-    background:rgba(0,0,0,0.65);
-    border:2px solid #FFD700;
-    border-radius:18px;
-    padding:30px;
-    margin-bottom:30px;
-}
-
-.card h2{
-    color:#FFD700;
-    margin-top:0;
-}
-
-/* LINKS (EMAIL أبيض) */
-a{
-    color:#ffffff;
-    font-size:18px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-a:hover{
-    color:#ffffff;
-    text-decoration:underline;
-}
-
-/* BUTTON */
-button{
-    background:#FFD700;
-    color:#000;
-    border:none;
-    padding:10px 22px;
-    font-size:16px;
-    border-radius:25px;
-    cursor:pointer;
-    margin-top:15px;
-}
-
-button:hover{
-    background:#ffffff;
+background:rgba(0,0,0,0.7);
+border:2px solid #FFD700;
+border-radius:18px;
+padding:25px;
+width:480px;
+max-width:90%;
 }
 
 /* GALLERY */
+
 .gallery{
-    display:none;
-    margin-top:20px;
+display:none;
+margin-top:15px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 .gallery img{
-    width:400px;
-    height:200px;
-    object-fit:cover;
-    border-radius:15px;
-    margin:10px;
-    border:3px solid #FFD700;
+width:45%;
+max-width:250px;
+border-radius:12px;
+margin:8px;
+border:3px solid #FFD700;
 }
 
-/* SOCIAL */
-.social a{
-    display:inline-block;
-    margin:10px;
-    font-size:20px;
+/* LINKS */
+
+a{
+color:white;
+text-decoration:none;
+font-weight:bold;
 }
 
-/* FOOTER */
+button{
+background:#FFD700;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+cursor:pointer;
+margin-top:10px;
+}
+
 footer{
-    padding:20px;
-    font-size:14px;
-    color:#ccc;
-    border-top:1px solid rgba(255,255,255,0.2);
+margin-top:40px;
+padding:20px;
+color:#ccc;
+border-top:1px solid rgba(255,255,255,0.2);
 }
 
-/* JS EFFECT */
 </style>
 
 <script>
 function toggle(id){
-    const el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
+let el=document.getElementById(id);
+if(el.style.display==="flex"){
+el.style.display="none";
+}else{
+el.style.display="flex";
+}
 }
 </script>
 
 </head>
+
 <body>
 
 <header>
-    <img src="SS01/abd.jpeg" alt="ABD ELHAKIM" class="profile-img">
-    <h1>ABD ELHAKIM</h1>
-    <p>꧁  𝐌𝐲  𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥  𝐖𝐞𝐛𝐬𝐢𝐭𝐞  ꧂</p>
-    <p> ڪــــــــــــــــلــــــــــــــــوــــــــــــــــكــــــــــــــــس </p>
+
+<img src="SS01/abd.jpeg" class="profile-img">
+
+<h1>ABD ELHAKIM</h1>
+
+<p>꧁ My Official Website ꧂</p>
+
 </header>
 
 <section>
 
-<!-- 1 : من أنا -->
 <div class="card">
-    <h2>👤 من أنا</h2>
-    <p>
-        🌐 𝐁𝐨𝐧𝐣𝐨𝐮𝐫, 𝐣𝐞 𝐬𝐮𝐢𝐬 𝐀𝐛𝐝 𝐞𝐥 𝐇𝐚𝐤𝐢𝐦
-𝐕𝐨𝐢𝐜𝐢 𝐦𝐨𝐧 𝐬𝐢𝐭𝐞 𝐰𝐞𝐛 𝐂𝐡𝐫𝐨𝐦𝐞
- 𝐓𝐨𝐮𝐭 𝐜𝐞 𝐪𝐮𝐢 𝐦𝐞 𝐜𝐨𝐧𝐜𝐞𝐫𝐧𝐞  📌
-    </p>
+<h2>👤 من أنا</h2>
+
+<p>
+Bonjour, je suis Abd el Hakim 🌍  
+Voici mon site web personnel.
+</p>
+
 </div>
 
-<!-- 2 : Free Fire -->
-<div class="card">
-    <h2>🎮 حسابي على Free Fire</h2>
-    <p>ID : <strong>1859049280</strong></p>
-    <button onclick="toggle('ff')">عرض الصور</button>
 
-    <div class="gallery" id="ff">
-        <img src="SS01/F.1.jpeg">
-        <img src="SS01/F.2.jpeg">
-        <img src="SS01/F.3.jpeg">
-        <img src="SS01/F.4.jpeg">
-        <img src="SS01/F.5.jpeg">
-        <img src="SS01/F.6.jpeg">
-        <img src="SS01/F.7.jpeg">
-        <img src="SS01/F.8.jpeg">
-        <img src="SS01/F.9.jpeg">
-        <img src="SS01/F.10.jpeg">
-        <img src="SS01/F.11.jpeg">
-    </div>
+<div class="card">
+
+<h2>🎮 حسابي على Free Fire</h2>
+
+<p>ID : <strong>1859049280</strong></p>
+
+<button onclick="toggle('ff')">عرض الصور</button>
+
+<div class="gallery" id="ff">
+
+<img src="SS01/F.1.jpeg">
+<img src="SS01/F.2.jpeg">
+<img src="SS01/F.3.jpeg">
+<img src="SS01/F.4.jpeg">
+<img src="SS01/F.5.jpeg">
+
 </div>
 
-<!-- 3 : eFootball -->
-<div class="card">
-    <h2>⚽ حسابي على eFootball</h2>
-    <button onclick="toggle('ef')">عرض الصور</button>
-
-    <div class="gallery" id="ef">
-        <img src="SS01/P.1.jpeg">
-        <img src="SS01/P.3.jpeg">
-        <img src="SS01/P.3.jpeg">
-        <img src="SS01/P.4.jpeg">
-        <img src="SS01/P.5.jpeg">
-        <img src="SS01/P.6.jpeg">
-        <img src="SS01/P.7.jpeg">
-    </div>
 </div>
 
-<!-- 4 : Social Media -->
+
 <div class="card">
-    <h2>🌐 حساباتي على مواقع التواصل</h2>
-    <div class="social">
-        <a href="***" target="_blank">Facebook</a>
-        <a href="https://www.tiktok.com/@abd_elhakim_66?_r=1&_t=ZS-93S99UaT1qX" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/abd_elhakim_66?igsh=MXdwdHMyeGQ1N3g5cw==" target="_blank">Instagram</a>
-    </div>
+
+<h2>⚽ حسابي على eFootball</h2>
+
+<button onclick="toggle('ef')">عرض الصور</button>
+
+<div class="gallery" id="ef">
+
+<img src="SS01/P.1.jpeg">
+<img src="SS01/P.2.jpeg">
+<img src="SS01/P.3.jpeg">
+
 </div>
 
-<!-- 5 : Email (آخر خانة) -->
+</div>
+
+
 <div class="card">
-    <h2>📩 التواصل عبر الإيميل</h2>
-    <a href="mailto:abdelhakimelarram@gmail.com">
-        abdelhakimelarram@gmail.com
-    </a>
+
+<h2>🌐 حساباتي</h2>
+
+<p>
+<a href="#">Facebook</a> |
+<a href="https://www.tiktok.com">TikTok</a> |
+<a href="https://instagram.com">Instagram</a>
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>📩 Email</h2>
+
+<a href="mailto:abdelhakimelarram@gmail.com">
+abdelhakimelarram@gmail.com
+</a>
+
 </div>
 
 </section>
 
 <footer>
-    الموقع الشخصي الرسمي لعبد الحكيم © 2006 – 2026
+
+الموقع الرسمي لعبد الحكيم © 2026
+
 </footer>
 
 </body>
