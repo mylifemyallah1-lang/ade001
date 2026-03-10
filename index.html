@@ -3,211 +3,984 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>abd elhakim 006</title>
+<title>ABD ELHAKIM – الموقع الرسمي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-margin:0;
-font-family:"Segoe UI",Tahoma,sans-serif;
-background:linear-gradient(135deg,#000000,#8b0000);
-color:white;
-text-align:center;
+:root {
+  --gold: #FFD700;
+  --gold2: #FFA500;
+  --dark: #050505;
+  --crimson: #8b0000;
+  --crimson2: #c0392b;
+  --glass: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,215,0,0.15);
 }
 
-/* HEADER */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-header{
-padding:40px 20px;
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--dark);
+  color: #fff;
+  overflow-x: hidden;
+  cursor: none;
 }
 
-.profile-img{
-width:260px;
-height:260px;
-border-radius:50%;
-border:6px solid #FFD700;
-object-fit:cover;
-box-shadow:0 0 40px rgba(255,215,0,0.7);
+/* ── CUSTOM CURSOR ── */
+.cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  position: fixed;
+  width: 38px; height: 38px;
+  border: 2px solid rgba(255,215,0,0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.18s ease, width 0.3s, height 0.3s;
 }
 
-h1{
-color:#FFD700;
-font-size:48px;
-margin:15px 0;
+/* ── ANIMATED BG ── */
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(139,0,0,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(180,20,20,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 0% 80%, rgba(100,0,0,0.25) 0%, transparent 60%);
+  animation: bgPulse 8s ease-in-out infinite alternate;
+}
+@keyframes bgPulse {
+  0%   { opacity: 0.8; }
+  100% { opacity: 1; }
 }
 
-/* MAIN LAYOUT */
+/* floating particles */
+.particles { position: absolute; inset: 0; }
+.p { position: absolute; border-radius: 50%; animation: float linear infinite; }
 
-section{
-max-width:1200px;
-margin:auto;
-padding:20px;
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
+/* ── NOISE OVERLAY ── */
+.noise {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-/* CARDS */
-
-.card{
-background:rgba(0,0,0,0.7);
-border:2px solid #FFD700;
-border-radius:18px;
-padding:25px;
-width:480px;
-max-width:90%;
+/* ── WRAPPER ── */
+.wrapper {
+  position: relative; z-index: 2;
 }
 
-/* GALLERY */
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(5,5,5,0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+.nav-logo {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--gold);
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  margin-inline-start: 28px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
 
-.gallery{
-display:none;
-margin-top:15px;
-flex-wrap:wrap;
-justify-content:center;
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 80px;
+  position: relative;
+}
+.hero-ring {
+  position: relative;
+  margin-bottom: 36px;
+}
+.hero-ring::before, .hero-ring::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  animation: spinRing 6s linear infinite;
+}
+.hero-ring::before {
+  inset: -10px;
+  border: 2px dashed rgba(255,215,0,0.3);
+}
+.hero-ring::after {
+  inset: -22px;
+  border: 1px solid rgba(255,215,0,0.15);
+  animation-direction: reverse;
+  animation-duration: 10s;
+}
+@keyframes spinRing {
+  to { transform: rotate(360deg); }
+}
+.profile-img {
+  width: 210px; height: 210px;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  object-fit: cover;
+  display: block;
+  box-shadow:
+    0 0 0 8px rgba(139,0,0,0.4),
+    0 0 60px rgba(255,215,0,0.4),
+    0 0 120px rgba(255,100,0,0.2);
+  animation: heroPulse 4s ease-in-out infinite;
+}
+@keyframes heroPulse {
+  0%,100% { box-shadow: 0 0 0 8px rgba(139,0,0,0.4), 0 0 60px rgba(255,215,0,0.4), 0 0 120px rgba(255,100,0,0.2); }
+  50%      { box-shadow: 0 0 0 14px rgba(139,0,0,0.25), 0 0 90px rgba(255,215,0,0.6), 0 0 160px rgba(255,100,0,0.35); }
 }
 
-.gallery img{
-width:45%;
-max-width:250px;
-border-radius:12px;
-margin:8px;
-border:3px solid #FFD700;
+.hero-name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(32px, 7vw, 72px);
+  font-weight: 900;
+  background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 4px;
+  animation: fadeSlideDown 1s ease forwards;
+  filter: drop-shadow(0 0 30px rgba(255,165,0,0.5));
+}
+.hero-sub {
+  margin-top: 12px;
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: fadeSlideDown 1s 0.2s ease both;
+}
+.hero-tag {
+  margin-top: 10px;
+  font-size: 22px;
+  color: rgba(255,215,0,0.75);
+  letter-spacing: 2px;
+  animation: fadeSlideDown 1s 0.35s ease both;
+}
+.hero-divider {
+  margin: 28px auto;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: fadeIn 1s 0.5s both;
+}
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeSlideUp 1s 0.6s ease both;
+}
+.btn-gold {
+  padding: 13px 34px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 30px rgba(255,165,0,0.4);
+}
+.btn-gold:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 40px rgba(255,165,0,0.7);
+}
+.btn-outline {
+  padding: 13px 34px;
+  background: transparent;
+  color: var(--gold);
+  border: 2px solid rgba(255,215,0,0.5);
+  border-radius: 50px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: none;
+  transition: all 0.3s;
+}
+.btn-outline:hover {
+  background: rgba(255,215,0,0.1);
+  border-color: var(--gold);
+  transform: translateY(-3px);
 }
 
-/* LINKS */
+/* scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.3);
+  font-size: 12px;
+  letter-spacing: 2px;
+  animation: bounce 2s infinite;
+}
+.scroll-hint span { font-size: 22px; }
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-a{
-color:white;
-text-decoration:none;
-font-weight:bold;
+/* ── SECTION LAYOUT ── */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+.section-title h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(22px, 4vw, 38px);
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+  border-radius: 99px;
+  margin: 16px auto 0;
 }
 
-button{
-background:#FFD700;
-border:none;
-padding:10px 20px;
-border-radius:20px;
-cursor:pointer;
-margin-top:10px;
+/* ── GLASS CARD ── */
+.card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 36px;
+  backdrop-filter: blur(16px);
+  transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,215,0,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,215,0,0.4);
+  box-shadow: 0 20px 60px rgba(139,0,0,0.35), 0 0 40px rgba(255,215,0,0.08);
+}
+.card-icon {
+  font-size: 42px;
+  margin-bottom: 16px;
+  display: block;
+}
+.card h3 {
+  color: var(--gold);
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+.card p {
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  font-size: 16px;
 }
 
-footer{
-margin-top:40px;
-padding:20px;
-color:#ccc;
-border-top:1px solid rgba(255,255,255,0.2);
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
+/* ── STATS ── */
+.stats-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 48px;
+}
+.stat-box {
+  flex: 1;
+  min-width: 160px;
+  background: linear-gradient(135deg, rgba(139,0,0,0.3), rgba(80,0,0,0.2));
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 20px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.stat-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(255,165,0,0.2);
+}
+.stat-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 38px;
+  color: var(--gold);
+  display: block;
+}
+.stat-label { font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; }
+
+/* ── GAME SECTION ── */
+.game-hero {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.game-badge {
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: #000;
+  font-weight: 900;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 99px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.id-box {
+  background: rgba(255,215,0,0.08);
+  border: 1px solid rgba(255,215,0,0.3);
+  border-radius: 12px;
+  padding: 14px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  cursor: none;
+  transition: background 0.3s;
+  font-size: 18px;
+  font-weight: 700;
+}
+.id-box:hover { background: rgba(255,215,0,0.14); }
+.id-box span { color: var(--gold); }
+.copy-btn {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: none;
+  transition: background 0.2s;
+}
+.copy-btn:hover { background: #fff; }
+
+/* gallery toggle btn */
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 2px solid rgba(255,215,0,0.4);
+  color: var(--gold);
+  padding: 11px 26px;
+  border-radius: 50px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: none;
+  transition: all 0.3s;
+  margin: 16px 0;
+}
+.toggle-btn:hover {
+  background: rgba(255,215,0,0.1);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ── GALLERY ── */
+.gallery {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  animation: fadeIn 0.5s ease;
+}
+.gallery.open { display: grid; }
+.gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(255,215,0,0.15);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  aspect-ratio: 16/9;
+  cursor: none;
+}
+.gallery-item:hover {
+  transform: scale(1.04);
+  border-color: rgba(255,215,0,0.6);
+  box-shadow: 0 10px 40px rgba(255,165,0,0.3);
+  z-index: 2;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+.gallery-item:hover .overlay { opacity: 1; }
+
+/* lightbox */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw; max-height: 90vh;
+  border-radius: 16px;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 80px rgba(255,165,0,0.4);
+}
+.lb-close {
+  position: absolute;
+  top: 24px; right: 30px;
+  color: #fff; font-size: 36px;
+  cursor: none;
+  background: none; border: none;
+  transition: color 0.2s;
+}
+.lb-close:hover { color: var(--gold); }
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,215,0,0.15);
+  border: 2px solid rgba(255,215,0,0.4);
+  color: var(--gold);
+  font-size: 28px;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  transition: background 0.3s;
+}
+.lb-nav:hover { background: rgba(255,215,0,0.3); }
+.lb-prev { left: 24px; }
+.lb-next { right: 24px; }
+.lb-counter {
+  position: absolute;
+  bottom: 24px;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+}
+
+/* ── SOCIAL GRID ── */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 28px 20px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+.social-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  transform: scaleX(0);
+  border-radius: 99px;
+  transition: transform 0.35s;
+}
+.social-card:hover::after { transform: scaleX(1); }
+.social-card.fb::after { background: #1877F2; }
+.social-card.tt::after { background: linear-gradient(90deg, #ff0050, #00f2ea); }
+.social-card.ig::after { background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.social-icon { font-size: 44px; }
+.social-name { font-size: 16px; font-weight: 700; letter-spacing: 1px; }
+.social-handle { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+/* ── EMAIL ── */
+.email-card {
+  text-align: center;
+  padding: 48px;
+}
+.email-card .big-icon { font-size: 56px; margin-bottom: 20px; display: block; }
+.email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,165,0,0.05));
+  border: 1px solid rgba(255,215,0,0.35);
+  border-radius: 16px;
+  padding: 18px 30px;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.3s;
+  margin-top: 16px;
+}
+.email-link:hover {
+  background: rgba(255,215,0,0.15);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(255,165,0,0.25);
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 48px 24px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+  z-index: 2;
+}
+.footer-logo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+footer p {
+  color: rgba(255,255,255,0.3);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: #000;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  z-index: 9999;
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events: none;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeSlideDown {
+  from { opacity:0; transform: translateY(-30px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes fadeSlideUp {
+  from { opacity:0; transform: translateY(30px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+@keyframes float {
+  0%   { transform: translateY(0) rotate(0deg); opacity:0; }
+  10%  { opacity:1; }
+  90%  { opacity:0.5; }
+  100% { transform: translateY(-110vh) rotate(720deg); opacity:0; }
+}
+
+/* reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: 1fr 1fr; }
+  .lb-nav { display: none; }
+}
 </style>
-
-<script>
-function toggle(id){
-let el=document.getElementById(id);
-if(el.style.display==="flex"){
-el.style.display="none";
-}else{
-el.style.display="flex";
-}
-}
-</script>
-
 </head>
-
 <body>
 
-<header>
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-<img src="SS01/abd.jpeg" class="profile-img">
+<!-- Noise -->
+<div class="noise"></div>
 
-<h1>ABD ELHAKIM</h1>
-
-<p>꧁ My Official Website ꧂</p>
-
-</header>
-
-<section>
-
-<div class="card">
-<h2>👤 من أنا</h2>
-
-<p>
-Bonjour, je suis Abd el Hakim 🌍  
-Voici mon site web personnel.
-</p>
-
+<!-- BG -->
+<div class="bg-canvas">
+  <div class="particles" id="particles"></div>
 </div>
 
-
-<div class="card">
-
-<h2>🎮 حسابي على Free Fire</h2>
-
-<p>ID : <strong>1859049280</strong></p>
-
-<button onclick="toggle('ff')">عرض الصور</button>
-
-<div class="gallery" id="ff">
-
-<img src="SS01/F.1.jpeg">
-<img src="SS01/F.2.jpeg">
-<img src="SS01/F.3.jpeg">
-<img src="SS01/F.4.jpeg">
-<img src="SS01/F.5.jpeg">
-
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev">&#8250;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">&#8249;</button>
+  <div class="lb-counter" id="lbCounter"></div>
 </div>
 
-</div>
+<!-- Toast -->
+<div class="toast" id="toast">تم النسخ! ✓</div>
 
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ABD ELHAKIM</div>
+  <div class="nav-links">
+    <a href="#about">من أنا</a>
+    <a href="#games">الألعاب</a>
+    <a href="#social">التواصل</a>
+    <a href="#contact">تواصل</a>
+  </div>
+</nav>
 
-<div class="card">
+<div class="wrapper">
 
-<h2>⚽ حسابي على eFootball</h2>
+  <!-- ───── HERO ───── -->
+  <header class="hero">
+    <div class="hero-ring">
+      <img src="SS01/abd.jpeg" alt="ABD ELHAKIM" class="profile-img" onerror="this.style.background='linear-gradient(135deg,#8b0000,#FFD700)';this.src=''">
+    </div>
+    <h1 class="hero-name">ABD ELHAKIM</h1>
+    <p class="hero-sub">My Official Website</p>
+    <p class="hero-tag">ڪلوكس</p>
+    <div class="hero-divider"></div>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="scrollTo('#games')">🎮 الألعاب</button>
+      <button class="btn-outline" onclick="scrollTo('#contact')">📩 تواصل معي</button>
+    </div>
+    <div class="scroll-hint">
+      <span>↓</span>
+      <span>اكتشف</span>
+    </div>
+  </header>
 
-<button onclick="toggle('ef')">عرض الصور</button>
+  <!-- ───── ABOUT ───── -->
+  <section class="section" id="about">
+    <div class="section-title reveal">
+      <h2>👤 من أنا</h2>
+    </div>
+    <div class="about-grid">
+      <div class="card reveal">
+        <span class="card-icon">🌐</span>
+        <h3>مرحباً بكم</h3>
+        <p>
+          Bonjour, je suis <strong style="color:var(--gold)">Abd El Hakim</strong><br>
+          هذا موقعي الرسمي الذي يضم كل ما يخصني —
+          حساباتي، ألعابي، وطرق التواصل معي.
+          Tout ce qui me concerne 📌
+        </p>
+      </div>
+      <div class="card reveal" style="transition-delay:0.15s">
+        <span class="card-icon">🎯</span>
+        <h3>اهتماماتي</h3>
+        <p>شغوف بعالم الألعاب الإلكترونية، متميز في Free Fire و eFootball،
+           وأحب التواصل مع الجمهور عبر منصات التواصل الاجتماعي.</p>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-box reveal" style="transition-delay:0.1s">
+        <span class="stat-num">2006</span>
+        <div class="stat-label">سنة الميلاد</div>
+      </div>
+      <div class="stat-box reveal" style="transition-delay:0.2s">
+        <span class="stat-num">20+</span>
+        <div class="stat-label">سنة خبرة</div>
+      </div>
+      <div class="stat-box reveal" style="transition-delay:0.3s">
+        <span class="stat-num">3</span>
+        <div class="stat-label">منصات اجتماعية</div>
+      </div>
+      <div class="stat-box reveal" style="transition-delay:0.4s">
+        <span class="stat-num">∞</span>
+        <div class="stat-label">شغف بالألعاب</div>
+      </div>
+    </div>
+  </section>
 
-<div class="gallery" id="ef">
+  <!-- ───── FREE FIRE ───── -->
+  <section class="section" id="games">
+    <div class="section-title reveal">
+      <h2>🎮 حسابي على Free Fire</h2>
+    </div>
+    <div class="card reveal">
+      <div class="game-hero">
+        <span class="game-badge">Free Fire</span>
+        <span style="color:rgba(255,255,255,0.4);font-size:14px;">معرف اللاعب</span>
+      </div>
+      <div class="id-box" onclick="copyID('1859049280')">
+        <span>🆔</span>
+        <span><strong>1859049280</strong></span>
+        <button class="copy-btn">نسخ</button>
+      </div>
+      <br>
+      <button class="toggle-btn" onclick="toggleGallery('ff', this)">
+        <span>📸</span> عرض لقطات الشاشة
+        <span class="arrow">▼</span>
+      </button>
+      <div class="gallery" id="ff">
+        <div class="gallery-item" onclick="openLB('ff',0)"><img src="SS01/F.1.jpeg" alt="FF 1"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',1)"><img src="SS01/F.2.jpeg" alt="FF 2"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',2)"><img src="SS01/F.3.jpeg" alt="FF 3"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',3)"><img src="SS01/F.4.jpeg" alt="FF 4"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',4)"><img src="SS01/F.5.jpeg" alt="FF 5"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',5)"><img src="SS01/F.6.jpeg" alt="FF 6"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',6)"><img src="SS01/F.7.jpeg" alt="FF 7"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',7)"><img src="SS01/F.8.jpeg" alt="FF 8"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',8)"><img src="SS01/F.9.jpeg" alt="FF 9"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',9)"><img src="SS01/F.10.jpeg" alt="FF 10"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ff',10)"><img src="SS01/F.11.jpeg" alt="FF 11"><div class="overlay"></div></div>
+      </div>
+    </div>
 
-<img src="SS01/P.1.jpeg">
-<img src="SS01/P.2.jpeg">
-<img src="SS01/P.3.jpeg">
+    <!-- eFootball -->
+    <div class="card reveal" style="margin-top:28px;transition-delay:0.2s">
+      <div class="game-hero">
+        <span class="game-badge" style="background:linear-gradient(135deg,#00b09b,#96c93d);color:#000">eFootball</span>
+        <span style="color:rgba(255,255,255,0.4);font-size:14px;">حساب كرة القدم</span>
+      </div>
+      <button class="toggle-btn" onclick="toggleGallery('ef', this)">
+        <span>⚽</span> عرض لقطات الشاشة
+        <span class="arrow">▼</span>
+      </button>
+      <div class="gallery" id="ef">
+        <div class="gallery-item" onclick="openLB('ef',0)"><img src="SS01/P.1.jpeg" alt="EF 1"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ef',1)"><img src="SS01/P.2.jpeg" alt="EF 2"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ef',2)"><img src="SS01/P.3.jpeg" alt="EF 3"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ef',3)"><img src="SS01/P.4.jpeg" alt="EF 4"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ef',4)"><img src="SS01/P.5.jpeg" alt="EF 5"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ef',5)"><img src="SS01/P.6.jpeg" alt="EF 6"><div class="overlay"></div></div>
+        <div class="gallery-item" onclick="openLB('ef',6)"><img src="SS01/P.7.jpeg" alt="EF 7"><div class="overlay"></div></div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- ───── SOCIAL ───── -->
+  <section class="section" id="social">
+    <div class="section-title reveal">
+      <h2>🌐 حساباتي</h2>
+    </div>
+    <div class="social-grid">
+      <a href="***" target="_blank" class="social-card fb reveal">
+        <span class="social-icon">📘</span>
+        <span class="social-name">Facebook</span>
+        <span class="social-handle">Abd Elhakim</span>
+      </a>
+      <a href="https://www.tiktok.com/@abd_elhakim_66?_r=1&_t=ZS-93S99UaT1qX" target="_blank" class="social-card tt reveal" style="transition-delay:0.1s">
+        <span class="social-icon">🎵</span>
+        <span class="social-name">TikTok</span>
+        <span class="social-handle">@abd_elhakim_66</span>
+      </a>
+      <a href="https://www.instagram.com/abd_elhakim_66?igsh=MXdwdHMyeGQ1N3g5cw==" target="_blank" class="social-card ig reveal" style="transition-delay:0.2s">
+        <span class="social-icon">📸</span>
+        <span class="social-name">Instagram</span>
+        <span class="social-handle">@abd_elhakim_66</span>
+      </a>
+    </div>
+  </section>
 
-</div>
+  <!-- ───── CONTACT ───── -->
+  <section class="section" id="contact">
+    <div class="section-title reveal">
+      <h2>📩 التواصل</h2>
+    </div>
+    <div class="card email-card reveal">
+      <span class="big-icon">✉️</span>
+      <p style="color:rgba(255,255,255,0.6);font-size:17px">تواصل معي عبر البريد الإلكتروني</p>
+      <a href="mailto:abdelhakimelarram@gmail.com" class="email-link">
+        📧 abdelhakimelarram@gmail.com
+      </a>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">ABD ELHAKIM</div>
+    <p>الموقع الشخصي الرسمي لعبد الحكيم &nbsp;©&nbsp; 2006 – 2026</p>
+    <p style="margin-top:8px;font-size:11px;color:rgba(255,255,255,0.18)">Crafted with ♥ & Gold</p>
+  </footer>
 
-<div class="card">
+</div><!-- /wrapper -->
 
-<h2>🌐 حساباتي</h2>
+<script>
+/* ─── CURSOR ─── */
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+(function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px'; requestAnimationFrame(animRing); })();
 
-<p>
-<a href="#">Facebook</a> |
-<a href="https://www.tiktok.com">TikTok</a> |
-<a href="https://instagram.com">Instagram</a>
-</p>
+/* ─── PARTICLES ─── */
+const pc = document.getElementById('particles');
+for(let i=0;i<55;i++){
+  const p=document.createElement('div');
+  const size=Math.random()*4+1;
+  const hue=Math.random()>0.6?'255,215,0':'200,0,0';
+  p.className='p';
+  p.style.cssText=`
+    width:${size}px;height:${size}px;
+    background:rgba(${hue},${Math.random()*0.7+0.1});
+    left:${Math.random()*100}%;
+    bottom:${-size}px;
+    animation-duration:${Math.random()*15+10}s;
+    animation-delay:${Math.random()*10}s;
+  `;
+  pc.appendChild(p);
+}
 
-</div>
+/* ─── SCROLL REVEAL ─── */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
+},{threshold:0.12});
+revealEls.forEach(el=>io.observe(el));
 
+/* ─── GALLERY TOGGLE ─── */
+function toggleGallery(id, btn){
+  const g=document.getElementById(id);
+  const open=g.classList.toggle('open');
+  btn.querySelector('.arrow').textContent=open?'▲':'▼';
+}
 
-<div class="card">
+/* ─── SCROLL TO ─── */
+function scrollTo(sel){
+  document.querySelector(sel).scrollIntoView({behavior:'smooth'});
+}
 
-<h2>📩 Email</h2>
+/* ─── COPY ID ─── */
+function copyID(txt){
+  navigator.clipboard.writeText(txt).catch(()=>{});
+  showToast('تم نسخ ID: '+txt+' ✓');
+}
 
-<a href="mailto:abdelhakimelarram@gmail.com">
-abdelhakimelarram@gmail.com
-</a>
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
 
-</div>
+/* ─── LIGHTBOX ─── */
+const galleries = {
+  ff: Array.from(document.querySelectorAll('#ff .gallery-item img')).map(i=>i.src),
+  ef: Array.from(document.querySelectorAll('#ef .gallery-item img')).map(i=>i.src),
+};
+let lbGallery=[], lbIdx=0;
 
-</section>
-
-<footer>
-
-الموقع الرسمي لعبد الحكيم © 2026
-
-</footer>
-
+function openLB(gallery, idx){
+  lbGallery=galleries[gallery]; lbIdx=idx;
+  updateLB();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function updateLB(){
+  document.getElementById('lbImg').src=lbGallery[lbIdx];
+  document.getElementById('lbCounter').textContent=(lbIdx+1)+' / '+lbGallery.length;
+}
+document.getElementById('lbClose').onclick=()=>{
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+};
+document.getElementById('lbPrev').onclick=()=>{ lbIdx=(lbIdx-1+lbGallery.length)%lbGallery.length; updateLB(); };
+document.getElementById('lbNext').onclick=()=>{ lbIdx=(lbIdx+1)%lbGallery.length; updateLB(); };
+document.getElementById('lightbox').addEventListener('click',e=>{
+  if(e.target===document.getElementById('lightbox')){
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='ArrowLeft') document.getElementById('lbNext').click();
+  if(e.key==='ArrowRight') document.getElementById('lbPrev').click();
+  if(e.key==='Escape') document.getElementById('lbClose').click();
+});
+</script>
 </body>
 </html>
