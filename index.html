@@ -131,7 +131,6 @@ nav {
 .mmenu a:active { color: var(--gold); }
 
 /* ===================== PAGE OFFSET ===================== */
-/* nav=54 + ticker=34 = 88px */
 .page { padding-top: 88px; position: relative; z-index: 2; }
 
 /* ===================== HERO ===================== */
@@ -143,7 +142,6 @@ nav {
   text-align: center;
   position: relative; overflow: hidden;
 }
-/* lava glow bottom */
 .hero::after {
   content: ''; position: absolute; bottom: 0; left: 50%;
   transform: translateX(-50%);
@@ -176,21 +174,13 @@ nav {
   50%      { box-shadow: 0 0 0 12px rgba(100,0,0,.18), 0 0 70px rgba(255,150,0,.7), 0 0 130px rgba(255,60,0,.3); }
 }
 
-/* name + volcano */
+/* name */
 .name-wrap {
   position: relative;
   display: block;
   width: 100%;
   text-align: center;
   margin-bottom: 6px;
-}
-#vc {
-  position: absolute;
-  top: -30px; left: 50%;
-  transform: translateX(-50%);
-  width: 100%; height: 150px;
-  pointer-events: none; z-index: 1;
-  overflow: hidden;
 }
 .hero-name {
   font-family: 'Cinzel Decorative', serif;
@@ -425,12 +415,10 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
 
 /* ===================== MOBILE ===================== */
 @media (max-width: 700px) {
-  /* nav */
   .nav-links { display: none; }
   .ham { display: flex; }
   nav { padding: 0 14px; }
 
-  /* hero */
   .hero { padding: 28px 14px 50px; min-height: calc(100vh - 88px); }
   .profile-img { width: 140px; height: 140px; }
   .hero-ring::before { inset: -8px; }
@@ -439,7 +427,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
   .hero-btns { flex-direction: column; align-items: center; width: 100%; }
   .btn-r, .btn-o { width: 100%; max-width: 240px; text-align: center; }
 
-  /* sections */
   .sec { padding: 50px 14px; }
   .card { padding: 18px 14px; }
   .grid2 { grid-template-columns: 1fr; }
@@ -447,13 +434,10 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
   .stat { min-width: 70px; padding: 14px 8px; }
   .stat-n { font-size: 20px; }
 
-  /* gallery */
   .gallery { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
 
-  /* social - stack vertically */
   .sgrid { grid-template-columns: 1fr; gap: 12px; }
 
-  /* lightbox */
   .lbbtn { width: 34px; height: 34px; font-size: 16px; }
   .lbpv { left: 5px; } .lbnx { right: 5px; }
 }
@@ -495,7 +479,7 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ti">ABD EL HAKIM</span><span class="td"></span>
+    <span class="ti">ABD ELHAKIM</span><span class="td"></span>
     <span class="ti">CLOCKS</span><span class="td"></span>
     <span class="ti">FREE FIRE</span><span class="td"></span>
     <span class="ti">eFOOTBALL</span><span class="td"></span>
@@ -528,11 +512,10 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
         onerror="this.style.background='linear-gradient(135deg,#8b0000,#FFD700)';this.removeAttribute('src')">
     </div>
     <div class="name-wrap">
-      <canvas id="vc"></canvas>
       <h1 class="hero-name">ABD ELHAKIM</h1>
     </div>
     <p class="hero-sub">My Official Website</p>
-    <p class="hero-tag">༒  كـلـوكـس  ༒</p>
+    <p class="hero-tag">كـلـوكـس</p>
     <div class="hero-line"></div>
     <div class="hero-btns">
       <button class="btn-r" onclick="go('#games')">الالعاب</button>
@@ -750,86 +733,6 @@ document.getElementById('lb').addEventListener('touchend',function(e){
   var dx=e.changedTouches[0].clientX-tsx;
   if(Math.abs(dx)>44){dx<0?document.getElementById('lbnx').click():document.getElementById('lbpv').click();}
 },{passive:true});
-
-/* volcano canvas */
-(function(){
-  var canvas=document.getElementById('vc');
-  if(!canvas)return;
-  var ctx=canvas.getContext('2d');
-  var W=0,H=150,pts=[];
-
-  function resize(){
-    W=canvas.parentElement.offsetWidth;
-    canvas.width=W; canvas.height=H;
-  }
-  resize();
-  window.addEventListener('resize',resize);
-
-  function spawn(){
-    var cx=W/2, t=Math.random();
-    if(t<.55){
-      pts.push({k:'e',x:cx+(Math.random()-.5)*16,y:H*.84,
-        vx:(Math.random()-.5)*3,vy:-(Math.random()*4+2.4),
-        life:1,dc:Math.random()*.022+.011,r:Math.random()*2.4+.7,
-        hue:Math.random()*38+5,br:Math.floor(Math.random()*28+58)});
-    } else if(t<.78){
-      pts.push({k:'l',x:cx+(Math.random()-.5)*24,y:H*.82,
-        vx:(Math.random()-.5)*3.2,vy:-(Math.random()*2.8+1.7),
-        life:1,dc:Math.random()*.013+.007,r:Math.random()*4.5+3,
-        hue:Math.random()*18,br:44});
-    } else if(t<.92){
-      pts.push({k:'s',x:cx+(Math.random()-.5)*34,y:H*.72,
-        vx:(Math.random()-.5)*.55,vy:-(Math.random()*1.1+.38),
-        life:.52,dc:Math.random()*.006+.004,r:Math.random()*16+9});
-    } else {
-      pts.push({k:'a',x:cx+(Math.random()-.5)*W*.45,y:H*.74,
-        vx:(Math.random()-.5)*1.6,vy:-(Math.random()*1.4+.44),
-        life:.78,dc:Math.random()*.01+.005,r:Math.random()*1.4+.45});
-    }
-  }
-
-  function frame(){
-    ctx.clearRect(0,0,W,H);
-    var n=Math.random()<.68?3:2;
-    for(var i=0;i<n;i++)spawn();
-    for(var i=pts.length-1;i>=0;i--){
-      var d=pts[i]; ctx.save();
-      if(d.k==='s'){
-        ctx.globalAlpha=d.life*.15;
-        ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
-        ctx.fillStyle='rgba(48,12,0,1)';ctx.fill();
-        d.r+=.2;
-      } else if(d.k==='e'){
-        ctx.globalAlpha=d.life*.88;
-        ctx.shadowBlur=9;ctx.shadowColor='hsl('+d.hue+',100%,68%)';
-        ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
-        ctx.fillStyle='hsl('+d.hue+',100%,'+d.br+'%)';ctx.fill();
-        d.vy+=.042;
-      } else if(d.k==='l'){
-        ctx.globalAlpha=d.life*.83;
-        ctx.shadowBlur=14;ctx.shadowColor='hsl('+d.hue+',100%,52%)';
-        var g=ctx.createRadialGradient(d.x,d.y,0,d.x,d.y,d.r);
-        g.addColorStop(0,'hsl('+(d.hue+28)+',100%,72%)');
-        g.addColorStop(.5,'hsl('+d.hue+',100%,'+d.br+'%)');
-        g.addColorStop(1,'hsl('+d.hue+',100%,18%)');
-        ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
-        ctx.fillStyle=g;ctx.fill();
-        d.vy+=.086;
-      } else {
-        ctx.globalAlpha=d.life*.58;
-        ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
-        ctx.fillStyle='rgba(195,110,0,.8)';ctx.fill();
-        d.vy+=.032;
-      }
-      ctx.restore();
-      d.x+=d.vx; d.y+=d.vy; d.vx*=.98; d.life-=d.dc;
-      if(d.life<=0)pts.splice(i,1);
-    }
-    requestAnimationFrame(frame);
-  }
-  frame();
-})();
 </script>
 </body>
 </html>
-
