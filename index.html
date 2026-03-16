@@ -4,6 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABD ELHAKIM</title>
+
+<!-- ============================================================
+     SOCIAL MEDIA LINK PREVIEW  —  Open Graph + Twitter Card
+     ▼▼▼  TO CHANGE THE PREVIEW IMAGE:
+          Replace the URL value on the two lines marked below.
+          The URL must be a full public link to your image,
+          e.g.  https://yoursite.com/my-preview.jpg
+          Recommended size: 1200 × 630 px  (JPG or PNG)
+     ============================================================ -->
+<meta property="og:title"         content="ABD EL HAKIM — الموقع الرسمي" />
+<meta property="og:description"   content="الموقع الشخصي الرسمي لعبد الحكيم — دروس، ألعاب، حسابات التواصل الاجتماعي" />
+<meta property="og:type"          content="website" />
+<meta property="og:url"           content="https://YOUR-WEBSITE-URL.com" />
+
+<!-- ▼ CHANGE THE URL BELOW TO YOUR CUSTOM PREVIEW IMAGE ▼ -->
+<meta property="og:image"         content="https://YOUR-WEBSITE-URL.com/preview-image.jpg" />
+<!-- ▲ CHANGE THE URL ABOVE TO YOUR CUSTOM PREVIEW IMAGE ▲ -->
+
+<meta property="og:image:width"   content="1200" />
+<meta property="og:image:height"  content="630" />
+<meta property="og:image:alt"     content="ABD EL HAKIM" />
+<meta property="og:site_name"     content="ABD EL HAKIM" />
+
+<!-- Twitter / X Card (also read by some other platforms) -->
+<meta name="twitter:card"         content="summary_large_image" />
+<meta name="twitter:title"        content="ABD EL HAKIM — الموقع الرسمي" />
+<meta name="twitter:description"  content="الموقع الشخصي الرسمي لعبد الحكيم" />
+
+<!-- ▼ CHANGE THE URL BELOW TO YOUR CUSTOM PREVIEW IMAGE ▼ -->
+<meta name="twitter:image"        content="https://YOUR-WEBSITE-URL.com/preview-image.jpg" />
+<!-- ▲ CHANGE THE URL ABOVE TO YOUR CUSTOM PREVIEW IMAGE ▲ -->
+
+<!-- ============================================================
+     END OF SOCIAL MEDIA PREVIEW TAGS
+     ============================================================ -->
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=MedievalSharp&family=Uncial+Antiqua&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -491,7 +527,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
   cursor: pointer; transition: all .2s;
   text-decoration: none; min-width: 44px; min-height: 44px;
   box-shadow: 0 3px 14px rgba(0,0,0,.6);
-  /* prevent text selection on long-press mobile */
   -webkit-user-select: none; user-select: none;
 }
 .lb-dl-btn:hover { background: linear-gradient(135deg, rgba(220,80,0,.95), rgba(160,40,0,1)); transform: scale(1.05); }
@@ -532,7 +567,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
   .cat-btn { padding:10px 8px 12px; }
   .cat-illus { height:65px; }
   .cat-label { font-size:12px; }
-  /* 3 thumbnails per row on mobile — never 1 column */
   .lrb-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 6px; }
   .lrb-thumb { border-radius: 6px; }
   .lesson-row-body { padding: 12px 8px 14px; }
@@ -565,34 +599,26 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
         <filter id="dgL"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         <linearGradient id="fL" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ff2000"/><stop offset="40%" stop-color="#ff7700"/><stop offset="75%" stop-color="#ffcc00"/><stop offset="100%" stop-color="#ffe800" stop-opacity="0"/></linearGradient>
       </defs>
-      <!-- tail -->
       <path d="M80 660 Q55 600 65 540 Q72 490 88 450" stroke="#7a0000" stroke-width="22" stroke-linecap="round" fill="none"/>
       <path d="M80 660 Q40 675 25 660 Q12 645 22 628 Q34 612 60 622 Q72 630 80 660Z" fill="#6a0000"/>
-      <!-- rear leg + claws -->
       <path d="M88 540 Q60 510 45 530 Q35 548 50 560 Q65 570 80 555" stroke="#8b0000" stroke-width="16" stroke-linecap="round" fill="none"/>
       <path d="M45 530 Q22 522 16 535" stroke="#aa0000" stroke-width="7" stroke-linecap="round" fill="none"/>
       <path d="M35 548 Q12 542 8 556" stroke="#aa0000" stroke-width="7" stroke-linecap="round" fill="none"/>
       <path d="M50 560 Q30 558 26 572" stroke="#aa0000" stroke-width="7" stroke-linecap="round" fill="none"/>
-      <!-- body -->
       <ellipse cx="160" cy="360" rx="72" ry="180" fill="url(#dBL)" filter="url(#dgL)" transform="rotate(-12 160 360)"/>
       <ellipse cx="148" cy="360" rx="38" ry="150" fill="#cc2200" opacity=".35" transform="rotate(-12 148 360)"/>
-      <!-- back spines -->
       <path d="M118 220 L128 195 L138 220 M134 250 L144 222 L154 250 M150 280 L160 250 L170 280 M162 312 L172 282 L182 312" stroke="#ff3300" stroke-width="2" fill="#dd1100" opacity=".8"/>
-      <!-- wings -->
       <path d="M148 260 Q80 180 20 140 Q-10 120 0 90 Q15 62 55 80 Q90 96 138 200 L148 260Z" fill="url(#dWL)"/>
       <path d="M148 260 Q95 185 20 140" stroke="#cc1800" stroke-width="2.5" opacity=".6"/>
       <path d="M148 255 Q100 200 45 155" stroke="#cc1800" stroke-width="1.8" opacity=".5"/>
       <path d="M148 280 Q85 310 20 295 Q-5 285 5 265 Q20 248 55 258 Q100 268 148 280Z" fill="url(#dWL)"/>
-      <!-- front leg -->
       <path d="M178 420 Q210 440 215 465 Q215 490 198 498 Q178 505 168 490 Q158 474 172 462" stroke="#8b0000" stroke-width="16" stroke-linecap="round" fill="none"/>
       <path d="M215 465 Q238 462 244 474" stroke="#aa0000" stroke-width="7" stroke-linecap="round" fill="none"/>
       <path d="M215 478 Q238 480 242 493" stroke="#aa0000" stroke-width="7" stroke-linecap="round" fill="none"/>
       <path d="M198 498 Q215 508 212 522" stroke="#aa0000" stroke-width="7" stroke-linecap="round" fill="none"/>
-      <!-- neck -->
       <path d="M148 200 Q158 155 168 120 Q178 88 188 65" stroke="url(#dBL)" stroke-width="46" stroke-linecap="round" fill="none"/>
       <path d="M148 200 Q158 155 168 120 Q178 88 188 65" stroke="#e03000" stroke-width="28" stroke-linecap="round" fill="none" opacity=".5"/>
       <path d="M152 188 L162 170 L172 188 M158 155 L168 135 L178 155 M164 125 L174 105 L184 125" stroke="#ff4400" stroke-width="1.5" fill="#dd2000" opacity=".7"/>
-      <!-- head -->
       <ellipse cx="200" cy="52" rx="44" ry="36" fill="url(#dBL)" filter="url(#dgL)"/>
       <path d="M192 22 Q196 4 204 0 Q210 4 206 18" fill="#cc1000" stroke="#ff3300" stroke-width="1"/>
       <path d="M208 18 Q214 2 220 -2 Q225 3 220 16" fill="#cc1000" stroke="#ff3300" stroke-width="1"/>
@@ -601,7 +627,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
       <line x1="216" y1="40" x2="216" y2="50" stroke="#660000" stroke-width="1.5"/>
       <path d="M160 62 Q190 75 235 65 Q250 60 248 52 Q240 42 225 44" fill="#8b0000" stroke="#aa0000" stroke-width="1.5"/>
       <path d="M175 66 L178 76 L182 66 M188 68 L191 79 L195 68 M201 68 L204 80 L208 68 M214 66 L217 77 L221 66" stroke="#ffeecc" stroke-width="1.5" fill="#ffeecc"/>
-      <!-- FIRE -->
       <path d="M245 52 Q295 30 360 22 Q400 18 415 28 Q405 40 370 38 Q320 36 280 50 Q260 56 245 52Z" fill="url(#fL)" opacity=".9">
         <animate attributeName="d" dur="0.4s" repeatCount="indefinite" values="M245 52 Q295 30 360 22 Q400 18 415 28 Q405 40 370 38 Q320 36 280 50 Q260 56 245 52Z;M245 52 Q288 25 358 16 Q398 12 415 26 Q408 42 368 42 Q315 40 278 52 Q260 58 245 52Z;M245 52 Q295 30 360 22 Q400 18 415 28 Q405 40 370 38 Q320 36 280 50 Q260 56 245 52Z"/>
       </path>
@@ -610,7 +635,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
       </path>
       <circle cx="340" cy="26" r="3" fill="#ffcc00"><animate attributeName="cx" dur="0.6s" repeatCount="indefinite" values="340;370;400"/><animate attributeName="opacity" dur="0.6s" repeatCount="indefinite" values="1;.5;0"/></circle>
       <circle cx="360" cy="20" r="2" fill="#ffee00"><animate attributeName="cy" dur="0.4s" repeatCount="indefinite" values="20;10;0"/><animate attributeName="opacity" dur="0.4s" repeatCount="indefinite" values="1;.5;0"/></circle>
-      <!-- glow -->
       <ellipse cx="160" cy="340" rx="80" ry="160" fill="#ff2000" opacity=".06" transform="rotate(-12 160 340)"/>
     </svg>
   </div>
@@ -652,7 +676,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
       <line x1="216" y1="40" x2="216" y2="50" stroke="#664400" stroke-width="1.5"/>
       <path d="M160 62 Q190 75 235 65 Q250 60 248 52 Q240 42 225 44" fill="#6a4800" stroke="#886600" stroke-width="1.5"/>
       <path d="M175 66 L178 76 L182 66 M188 68 L191 79 L195 68 M201 68 L204 80 L208 68 M214 66 L217 77 L221 66" stroke="#ffe8a0" stroke-width="1.5" fill="#ffe8a0"/>
-      <!-- GOLDEN FIRE -->
       <path d="M245 52 Q295 30 360 22 Q400 18 415 28 Q405 40 370 38 Q320 36 280 50 Q260 56 245 52Z" fill="url(#fR)" opacity=".9">
         <animate attributeName="d" dur="0.45s" repeatCount="indefinite" values="M245 52 Q295 30 360 22 Q400 18 415 28 Q405 40 370 38 Q320 36 280 50 Q260 56 245 52Z;M245 52 Q290 26 362 17 Q402 13 416 27 Q407 43 366 43 Q314 41 276 53 Q258 59 245 52Z;M245 52 Q295 30 360 22 Q400 18 415 28 Q405 40 370 38 Q320 36 280 50 Q260 56 245 52Z"/>
       </path>
@@ -881,7 +904,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
     <div class="lesson-panel card" id="panel-social">
       <div class="panel-header"><div class="panel-icon">🌍</div><div class="panel-title-wrap"><h3>الاجتماعيات</h3><p></p></div></div>
       <div class="lesson-list">
-
         <div class="lesson-row" id="row-social-1">
           <div class="lesson-row-head" onclick="toggleRow('social-1')"><div class="lrh-num">_ 1 _</div><span class="lrh-title">الاجتماعية : مكون التاريخ</span><span class="lrh-arrow">&#9660;</span></div>
           <div class="lesson-row-body"><div class="lrb-title">الاجتماعية : مكون التاريخ</div><div class="lrb-grid" id="sg1">
@@ -895,7 +917,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
             <div class="lrb-thumb" onclick="openImg('social-1',7)"><img src="SS01/AG8.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
           </div></div>
         </div>
-
         <div class="lesson-row" id="row-social-2">
           <div class="lesson-row-head" onclick="toggleRow('social-2')"><div class="lrh-num">_ 2 _</div><span class="lrh-title">الاجتماعية : مكون الجغرافية</span><span class="lrh-arrow">&#9660;</span></div>
           <div class="lesson-row-body"><div class="lrb-title">الاجتماعية : مكون الجغرافية</div><div class="lrb-grid">
@@ -909,7 +930,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
             <div class="lrb-thumb" onclick="openImg('social-2',7)"><img src="SS01/AT8.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
           </div></div>
         </div>
-
         <div class="lesson-row" id="row-social-3">
           <div class="lesson-row-head" onclick="toggleRow('social-3')"><div class="lrh-num">_ 3 _</div><span class="lrh-title">الاجتماعية : مصطلحات كل درس</span><span class="lrh-arrow">&#9660;</span></div>
           <div class="lesson-row-body"><div class="lrb-title">الاجتماعية : مصطلحات كل درس</div><div class="lrb-grid">
@@ -931,19 +951,19 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
           <div class="lesson-row-body"><div class="lrb-title"></div><div class="lrb-grid">
             <div class="lrb-thumb" onclick="openImg('islamic-1',0)"><img src="SS01/xx1.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
             <div class="lrb-thumb" onclick="openImg('islamic-1',1)"><img src="SS01/xx2.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-             <div class="lrb-thumb" onclick="openImg('islamic-1',2)"><img src="SS01/xx3.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-             <div class="lrb-thumb" onclick="openImg('islamic-1',3)"><img src="SS01/xx4.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-             <div class="lrb-thumb" onclick="openImg('islamic-1',4)"><img src="SS01/xx5.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-             <div class="lrb-thumb" onclick="openImg('islamic-1',5)"><img src="SS01/xx6.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-            </div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-1',2)"><img src="SS01/xx3.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-1',3)"><img src="SS01/xx4.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-1',4)"><img src="SS01/xx5.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-1',5)"><img src="SS01/xx6.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+          </div></div>
         </div>
         <div class="lesson-row" id="row-islamic-2">
           <div class="lesson-row-head" onclick="toggleRow('islamic-2')"><div class="lrh-num">2</div><span class="lrh-title">التربية الإسلامية : مكون الإقتداء</span><span class="lrh-arrow">&#9660;</span></div>
           <div class="lesson-row-body"><div class="lrb-title"></div><div class="lrb-grid">
-           <div class="lrb-thumb" onclick="openImg('islamic-2',0)"><img src="SS01/xx7.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-             <div class="lrb-thumb" onclick="openImg('islamic-2',1)"><img src="SS01/xx8.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-2',0)"><img src="SS01/xx7.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-2',1)"><img src="SS01/xx8.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
             <div class="lrb-thumb" onclick="openImg('islamic-2',2)"><img src="SS01/xx9.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-             <div class="lrb-thumb" onclick="openImg('islamic-2',3)"><img src="SS01/xx10.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-2',3)"><img src="SS01/xx10.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
             <div class="lrb-thumb" onclick="openImg('islamic-2',4)"><img src="SS01/xx11.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
           </div></div>
         </div>
@@ -951,37 +971,37 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
           <div class="lesson-row-head" onclick="toggleRow('islamic-3')"><div class="lrh-num">3</div><span class="lrh-title">التربية الإسلامية : مكون الاستجابة</span><span class="lrh-arrow">&#9660;</span></div>
           <div class="lesson-row-body"><div class="lrb-title"></div><div class="lrb-grid">
             <div class="lrb-thumb" onclick="openImg('islamic-3',0)"><img src="SS01/xx12.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-          <div class="lrb-thumb" onclick="openImg('islamic-3',1)"><img src="SS01/xx13.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-          <div class="lrb-thumb" onclick="openImg('islamic-3',2)"><img src="SS01/xx14.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-        <div class="lrb-thumb" onclick="openImg('islamic-3',3)"><img src="SS01/xx15.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-        <div class="lrb-thumb" onclick="openImg('islamic-3',4)"><img src="SS01/xx16.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-        <div class="lrb-thumb" onclick="openImg('islamic-3',5)"><img src="SS01/xx17.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    </div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-3',1)"><img src="SS01/xx13.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-3',2)"><img src="SS01/xx14.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-3',3)"><img src="SS01/xx15.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-3',4)"><img src="SS01/xx16.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-3',5)"><img src="SS01/xx17.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+          </div></div>
         </div>
-         <div class="lesson-row" id="row-islamic-4">
+        <div class="lesson-row" id="row-islamic-4">
           <div class="lesson-row-head" onclick="toggleRow('islamic-4')"><div class="lrh-num">4</div><span class="lrh-title">التربية الإسلامية : مكون القسط</span><span class="lrh-arrow">&#9660;</span></div>
           <div class="lesson-row-body"><div class="lrb-title"></div><div class="lrb-grid">
             <div class="lrb-thumb" onclick="openImg('islamic-4',0)"><img src="SS01/xx18.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-          <div class="lrb-thumb" onclick="openImg('islamic-4',1)"><img src="SS01/xx19.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-          <div class="lrb-thumb" onclick="openImg('islamic-4',2)"><img src="SS01/xx20.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-         <div class="lrb-thumb" onclick="openImg('islamic-4',3)"><img src="SS01/xx21.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-         <div class="lrb-thumb" onclick="openImg('islamic-4',4)"><img src="SS01/xx22.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-         <div class="lrb-thumb" onclick="openImg('islamic-4',5)"><img src="SS01/xx23.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-        <div class="lrb-thumb" onclick="openImg('islamic-4',6)"><img src="SS01/xx24.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    </div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-4',1)"><img src="SS01/xx19.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-4',2)"><img src="SS01/xx20.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-4',3)"><img src="SS01/xx21.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-4',4)"><img src="SS01/xx22.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-4',5)"><img src="SS01/xx23.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-4',6)"><img src="SS01/xx24.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+          </div></div>
         </div>
-         <div class="lesson-row" id="row-islamic-5">
+        <div class="lesson-row" id="row-islamic-5">
           <div class="lesson-row-head" onclick="toggleRow('islamic-5')"><div class="lrh-num">5</div><span class="lrh-title">التربية الإسلامية : مكون الحكمة</span><span class="lrh-arrow">&#9660;</span></div>
           <div class="lesson-row-body"><div class="lrb-title"></div><div class="lrb-grid">
             <div class="lrb-thumb" onclick="openImg('islamic-5',0)"><img src="SS01/xx25.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-          <div class="lrb-thumb" onclick="openImg('islamic-5',1)"><img src="SS01/xx26.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-          <div class="lrb-thumb" onclick="openImg('islamic-5',2)"><img src="SS01/xx27.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-         <div class="lrb-thumb" onclick="openImg('islamic-5',3)"><img src="SS01/xx28.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-         <div class="lrb-thumb" onclick="openImg('islamic-5',4)"><img src="SS01/xx29.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-         <div class="lrb-thumb" onclick="openImg('islamic-5',5)"><img src="SS01/xx30.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-         <div class="lrb-thumb" onclick="openImg('islamic-5',6)"><img src="SS01/xx31.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-        <div class="lrb-thumb" onclick="openImg('islamic-5',7)"><img src="SS01/xx32.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
-    </div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-5',1)"><img src="SS01/xx26.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-5',2)"><img src="SS01/xx27.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-5',3)"><img src="SS01/xx28.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-5',4)"><img src="SS01/xx29.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-5',5)"><img src="SS01/xx30.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-5',6)"><img src="SS01/xx31.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+            <div class="lrb-thumb" onclick="openImg('islamic-5',7)"><img src="SS01/xx32.jpeg" alt="" loading="lazy"><div class="dl-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div></div>
+          </div></div>
         </div>
       </div>
     </div>
@@ -1051,7 +1071,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
    LOCK SCREEN
    ============================================================ */
 (function(){
-  /* fire-colored particles */
   var c=document.getElementById('ls-pts');
   for(var i=0;i<52;i++){
     var p=document.createElement('div');
@@ -1065,7 +1084,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
       +'animation-delay:'+(Math.random()*12)+'s;';
     c.appendChild(p);
   }
-  /* vapor / steam particles rising from the name */
   var vapor=document.getElementById('ls-vapor');
   if(vapor){
     for(var j=0;j<20;j++){
@@ -1084,7 +1102,6 @@ footer p { color: rgba(255,255,255,.18); font-size: 11px; letter-spacing: 1.2px;
   }
 })();
 
-/* The password is stored obfuscated — not plain text in source */
 var _k = (function(){
   var p=[50,48,48,48,46,54,46,52,51,51];
   return p.map(function(c){return String.fromCharCode(c);}).join('');
@@ -1125,10 +1142,8 @@ function closeMenu(){document.getElementById('mmenu').classList.remove('open');}
 document.addEventListener('click',function(e){if(!e.target.closest('nav')&&!e.target.closest('#mmenu'))document.getElementById('mmenu').classList.remove('open');});
 function go(s){document.querySelector(s).scrollIntoView({behavior:'smooth'});}
 
-/* particles */
 (function(){var c=document.getElementById('bgpts');for(var i=0;i<46;i++){var p=document.createElement('div');var s=Math.random()*2.8+.6;var r=Math.random();var col=r<.44?'255,195,0':r<.74?'200,25,0':'255,110,0';p.className='pt';p.style.cssText='width:'+s+'px;height:'+s+'px;background:rgba('+col+','+(Math.random()*.42+.08)+');left:'+(Math.random()*100)+'%;bottom:0px;animation-duration:'+(Math.random()*15+9)+'s;animation-delay:'+(Math.random()*11)+'s;';c.appendChild(p);}})();
 
-/* scroll reveal */
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.07});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
@@ -1154,10 +1169,8 @@ function toggleRow(id){document.getElementById('row-'+id).classList.toggle('open
    ============================================================ */
 var lbImgs=[], lbPos=0;
 
-/* Download helper — works on both desktop and mobile */
 function downloadImg(src) {
   var fname = decodeURIComponent(src.split('/').pop().split('?')[0]) || 'image.jpg';
-  /* Try blob download first (works on most browsers incl. mobile Chrome) */
   fetch(src, {mode:'cors'})
     .then(function(r){ return r.blob(); })
     .then(function(blob){
@@ -1168,7 +1181,6 @@ function downloadImg(src) {
       setTimeout(function(){ URL.revokeObjectURL(url); document.body.removeChild(a); }, 1000);
     })
     .catch(function(){
-      /* Fallback: open image in new tab so user can long-press save on mobile */
       window.open(src, '_blank');
     });
 }
@@ -1236,7 +1248,6 @@ var _tsx=0;
 document.getElementById('lb').addEventListener('touchstart',function(e){_tsx=e.touches[0].clientX;},{passive:true});
 document.getElementById('lb').addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-_tsx;if(Math.abs(dx)>44){dx<0?document.getElementById('lbnx').click():document.getElementById('lbpv').click();}},{passive:true});
 
-/* game lightbox */
 var gameImgs={};
 window.addEventListener('load',function(){
   gameImgs={
